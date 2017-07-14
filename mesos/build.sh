@@ -10,7 +10,7 @@ build() {
   docker build \
     -t pixelmilk/mesos \
     -f base/Dockerfile \
-    --build-arg MESOS_VERSION=${MESOS_VERSION}-${MESOSPHERE_TAG} \
+    --build-arg MESOS_VERSION=${TAG} \
     . || exit $?
 
 # tag
@@ -24,12 +24,12 @@ build() {
     echo
     echo Building pixelmilk/mesos-${role}
     docker build \
-      -t pixelmilk/mesos-${role}:${MESOS_VERSION}-${MINIMESOS_DOCKER_VERSION} \
+      -t pixelmilk/mesos-${role}:${TAG} \
       -f ${role}/Dockerfile \
       . || exit $?
   done
     
 }
 
-#       Mesos version   Mesosphere tag  Version
-build   "1.3.0"	  	    "2.0.3"
+#     Mesos version   Mesosphere tag
+build "1.3.0"	  	    "2.0.3"

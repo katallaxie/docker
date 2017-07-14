@@ -7,5 +7,5 @@ ENV VERSION ${MESOS_VERSION}
 RUN echo "deb http://repos.mesosphere.io/ubuntu/ xenial main" > /etc/apt/sources.list.d/mesosphere.list && \
     apt-key adv --keyserver keyserver.ubuntu.com --recv E56151BF && \
     apt-get -y update && \
-    apt-get -y install mesos=${VERSION}&& \
+    apt-get -y --no-install-recommends install mesos=${VERSION} && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
