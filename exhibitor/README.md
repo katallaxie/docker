@@ -2,7 +2,7 @@ Runs an [Exhibitor](https://github.com/Netflix/exhibitor)-managed [ZooKeeper](ht
 
 Available on the Docker Index as [pixelmilk/exhibitor](https://index.docker.io/u/mbabineau/zookeeper-exhibitor/):
 
-    docker pull mbabineau/zookeeper-exhibitor
+    docker pull pixelmilk/zookeeper-exhibitor
 
 ### Versions
 * Exhibitor 1.1.0
@@ -33,7 +33,7 @@ Starting the container:
         -e AWS_ACCESS_KEY_ID=<access_key> \
         -e AWS_SECRET_ACCESS_KEY=<secret_key> \
         -e HOSTNAME=<host> \
-        mbabineau/zookeeper-exhibitor:latest
+        pixelmilk/zookeeper-exhibitor:latest
 
 Once the container is up, confirm Exhibitor is running:
 
@@ -91,4 +91,4 @@ Starting the container:
         -e S3_BUCKET=<bucket> \
         -e S3_PREFIX=<key_prefix> \
         -e HOSTNAME=<host> \
-        mbabineau/zookeeper-exhibitor:latest
+        pixelmilk/zookeeper-exhibitor:latest
