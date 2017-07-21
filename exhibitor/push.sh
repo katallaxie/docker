@@ -14,4 +14,4 @@ push() {
 }
 
 #    Exhibitor  ZooKeeper
-push "1.3.0"	"3.4.10"
+push "1.5.6"	"3.4.10"
