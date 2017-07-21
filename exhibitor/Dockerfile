@@ -19,7 +19,7 @@ RUN \
     # Link
     && ln -s ${BUILD_HOME}/target/exhibitor*jar ${BUILD_HOME}/exhibitor.jar
 
-FROM openjdk:8-jre-alpine
+FROM openjdk:8-jdk-alpine
 MAINTAINER Sebastian Döll <sebastian@pixelmilk.com>
 
 ARG EXHIBITOR_HOME
@@ -52,7 +52,7 @@ RUN \
     chown -R nobody.nobody ${JAVA_PREFS} ${ZOOKEEPER_HOME} ${EXHIBITOR_HOME} \
 
     # Default DNS cache TTL is -1. DNS records, like, change, man
-    && grep '^networkaddress.cache.ttl=' ${JAVA_HOME}/lib/security/java.security || echo 'networkaddress.cache.ttl=60' >> ${JAVA_HOME}/lib/security/java.security \
+    && grep '^networkaddress.cache.ttl=' ${JAVA_HOME}/jre/lib/security/java.security || echo 'networkaddress.cache.ttl=60' >> ${JAVA_HOME}/jre/lib/security/java.security \
 
     # Cleanup
     && rm -rf ${TEMP}
