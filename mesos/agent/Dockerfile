@@ -7,6 +7,7 @@ RUN apt-get update && \
     echo deb https://apt.dockerproject.org/repo ubuntu-xenial main > /etc/apt/sources.list.d/docker.list && \
     apt-get update && \
     apt-get -y install curl docker-engine && \
-    apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+    apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
+    curl -sSL https://dl.bintray.com/emccode/dvdcli/install | sh -s stable
 
 ENTRYPOINT ["mesos-slave", "--no-hostname_lookup"]
