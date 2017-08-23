@@ -8,6 +8,7 @@ build() {
 
 # base
   docker build \
+    --compress \
     -t pixelmilk/mesos \
     -f base/Dockerfile \
     --build-arg MESOS_VERSION=${TAG} \
@@ -24,12 +25,15 @@ build() {
     echo
     echo Building pixelmilk/mesos-${role}
     docker build \
+      --compress \
       -t pixelmilk/mesos-${role}:${TAG} \
       -f ${role}/Dockerfile \
       . || exit $?
   done
     
 }
+
+# curl http://169.254.169.254/latest/meta-data/local-ipv4
 
 #     Mesos version   Mesosphere tag
 build "1.3.0"	  	    "2.0.3"
